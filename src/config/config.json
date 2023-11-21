@@ -1,0 +1,32 @@
+{
+  "columns": [
+    {
+      "key": "id",
+      "label": "#",
+      "_props": {
+        "scope": "col"
+      }
+    },
+    {
+      "key": "class",
+      "label": "First",
+      "_props": {
+        "scope": "col"
+      }
+    },
+    {
+      "key": "heading_1",
+      "label": "Last",
+      "_props": {
+        "scope": "col"
+      }
+    },
+    {
+      "key": "heading_2",
+      "label": "@",
+      "_props": {
+        "scope": "col"
+      }
+    }
+  ]
+}

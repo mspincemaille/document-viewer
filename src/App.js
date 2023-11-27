@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { CAlert, CTable, CSpinner } from "@coreui/react";
+import { CAlert, CTable, CSpinner, CTableHead, CTableRow, CTableHeaderCell, CTableDataCell, CTableBody } from "@coreui/react";
 import '@coreui/coreui/dist/css/coreui.min.css'
 
 
@@ -23,7 +23,6 @@ export default function App() {
 
     data.subscribe({
       next: (results) => {
-        console.log(results);
         setConfig(currentData => {
           return ({ ...currentData, ...results })
         });
@@ -40,7 +39,29 @@ export default function App() {
   return (
     <>
       {loading ? <CSpinner></CSpinner> :
-        error ? <CAlert color="danger">An error occured while searching for data</CAlert> : <CTable columns={config.columns} items={config.items} hover></CTable>}
+        error ? <CAlert color="danger">An error occured while searching for data</CAlert> : 
+        <CTable>
+        <CTableHead>
+          <CTableRow> 
+            { config.columns.map(header => {
+                return <CTableHeaderCell key={ crypto.randomUUID() } scope="col">{ header.label }</CTableHeaderCell>
+              })
+            }
+          </CTableRow>
+        </CTableHead>
+        <CTableBody>
+         {
+          config.items.map( row => {
+            return ( <CTableRow key={ row.id }>
+              <CTableHeaderCell>{ row.id }</CTableHeaderCell>
+              <CTableDataCell>{ row.class }</CTableDataCell>
+              <CTableDataCell>{ row.heading_1 }</CTableDataCell>
+              <CTableDataCell>{ row.heading_2 }</CTableDataCell>
+            </CTableRow>)
+          })
+         }
+        </CTableBody>
+      </CTable>}
     </>
   );
 }

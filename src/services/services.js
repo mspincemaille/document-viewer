@@ -1,6 +1,5 @@
 import { Observable } from "rxjs";
 
-
 export const config$ = new Observable(observer => {
     fetch('/config')
         .then(response => response.json())

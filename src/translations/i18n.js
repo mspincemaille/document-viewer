@@ -7,12 +7,18 @@ import { initReactI18next } from "react-i18next";
 const resources = {
   en: {
     translation: {
-      "Error Message": "Something went wrong when fetching the data."
+      "Error Message": "Something went wrong when fetching the data.",
+      "View": "View",
+      "Print": "Print",
+      "Download": "Download"
     }
   },
   fr: {
     translation: {
-      "Error Message": "Une erreur s'est produite lors de la récupération des données."
+      "Error Message": "Une erreur s'est produite lors de la récupération des données.",
+      "View": "View",
+      "Print": "Print",
+      "Download": "Download"
     }
   }
 };

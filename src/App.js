@@ -7,12 +7,17 @@ import '@coreui/coreui/dist/css/coreui.min.css'
 
 import { config$, data$ } from "./services/services";
 import { concat } from "rxjs";
+import i18n from "./translations/i18n";
+import { useTranslation } from "react-i18next";
+
 
 export default function App() {
 
+  const { t, i18n } = useTranslation();
   const [loading, setLoading] = useState(true);
   const [config, setConfig] = useState({});
   const [error, setError] = useState(false);
+
 
   useEffect(() => {
     fetchTable()
@@ -39,7 +44,7 @@ export default function App() {
 
   return (
     <>
-      {loading ? <CSpinner></CSpinner> : error ? <CAlert color="danger">An error occured while searching for data</CAlert> : <Table config={config}></Table>}
+      { loading ? <CSpinner></CSpinner> : error ? <CAlert color="danger">{t('Error Message')}</CAlert> : <Table config={config}></Table>}
     </>
   );
 }

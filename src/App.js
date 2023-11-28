@@ -1,19 +1,16 @@
 import { useEffect, useState } from "react";
 
-import { CAlert, CSpinner } from "@coreui/react";
-import { Table } from '../src/components/Table';
+import { CSpinner } from "@coreui/react";
 import '@coreui/coreui/dist/css/coreui.min.css'
 
+import { Table } from './components/Table';
+import { Message } from './components/Message';
 
 import { config$, data$ } from "./services/services";
 import { concat } from "rxjs";
-import i18n from "./translations/i18n";
-import { useTranslation } from "react-i18next";
-
 
 export default function App() {
 
-  const { t, i18n } = useTranslation();
   const [loading, setLoading] = useState(true);
   const [config, setConfig] = useState({});
   const [error, setError] = useState(false);
@@ -34,7 +31,7 @@ export default function App() {
         });
       },
       error: () => {
-        setError(true); 
+        setError(true);
         setLoading(false);
       },
       complete: () => setLoading(false),
@@ -44,7 +41,11 @@ export default function App() {
 
   return (
     <>
-      { loading ? <CSpinner></CSpinner> : error ? <CAlert color="danger">{t('Error Message')}</CAlert> : <Table config={config}></Table>}
+      {
+        loading ?
+          <CSpinner></CSpinner> : error ?
+            <Message type='danger' message='Error Message'></Message> : <Table config={config}></Table>
+      }
     </>
   );
 }

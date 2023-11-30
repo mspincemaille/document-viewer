@@ -11,8 +11,8 @@ export function Toast({ type, message }) {
     const toaster = useRef() 
 
     useEffect(() => {
-      if(type) setToast(toastBody);
-    },[type]);
+      if(message) setToast(toastBody);
+    },[message]);
 
     const toastBody = (
       <CToast color={type}>

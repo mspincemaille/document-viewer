@@ -18,7 +18,6 @@ export default function App() {
 
   useEffect(() => {
     fetchTable()
-
   }, []);
 
   function fetchTable() {

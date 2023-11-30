@@ -10,7 +10,8 @@ const resources = {
       "Error Message": "Something went wrong when fetching the data.",
       "View": "View",
       "Print": "Print",
-      "Download": "Download"
+      "Download": "Download",
+      "Download Success": "Download completed"
     }
   },
   fr: {

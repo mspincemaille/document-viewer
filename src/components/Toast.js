@@ -7,26 +7,19 @@ import { useTranslation } from "react-i18next";
 export function Toast({ type, message }) {
     const { t, i18n } = useTranslation();
    
-    const [toast, addToast] = useState(0)
+    const [toast, setToast] = useState(0)
     const toaster = useRef() 
 
     useEffect(() => {
-      if(type) callToast();
+      if(type) setToast(toastBody);
     },[type]);
 
-    const callToast = () => {
-        addToast(exampleToast)
-    }
-
-    const exampleToast = (
+    const toastBody = (
       <CToast color={type}>
         <CToastBody>{t(message)}</CToastBody>
       </CToast>
     )
-    return (
-      <>
-        {/* <CButton onClick={() => addToast(exampleToast)}>Send a toast</CButton> */}
-        <CToaster ref={toaster} push={toast} placement="top-end" />
-      </>
-    )
+
+    return <CToaster ref={toaster} push={toast} placement="top-end" />
+
 }

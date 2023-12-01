@@ -37,7 +37,7 @@ export function Dropdown({ id }) {
         <>
             <Toast type={toast.type} message={toast.message}></Toast>
             <CDropdown>
-                <CDropdownToggle></CDropdownToggle>
+                <CDropdownToggle color="light"></CDropdownToggle>
                 <CDropdownMenu>
                     <CDropdownItem onClick={downloadDocument}>{t('Download')}</CDropdownItem>
                     <CDropdownItem onClick={printDocument}>{t('Print')}</CDropdownItem>

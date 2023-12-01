@@ -23,7 +23,8 @@ export function fetchDocument(id) {
         fetch('/document/' + id)
             .then(response => response.blob())
             .then(data => {
-                observer.next(data);
+                data = data.slice(0, data.size, 'image/jpg')
+                observer.next(URL.createObjectURL(data));
                 observer.complete();
             }).catch(error => observer.error(error));
     });

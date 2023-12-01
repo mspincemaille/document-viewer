@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 import { CSpinner } from "@coreui/react";
 import '@coreui/coreui/dist/css/coreui.min.css'
+import i18n from "./translations/i18n";
 
 import { Table } from './components/Table';
 import { Message } from './components/Message';
@@ -35,7 +36,6 @@ export default function App() {
       },
       complete: () => setLoading(false),
     });
-
   }
 
   return (

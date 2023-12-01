@@ -24,7 +24,8 @@
         },
         {
             "id": 3,
-            "class": "Larry the Bird",
+            "class": "Larry",
+            "heading_1": "the Bird",
             "heading_2": "@twitter",
             "_cellProps": {
                 "id": {

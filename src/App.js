@@ -21,7 +21,7 @@ export default function App() {
     fetchTable()
   }, []);
 
-  function fetchTable() {
+  const fetchTable = () => {
     const data = concat(config$, data$);
 
     data.subscribe({

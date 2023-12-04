@@ -9,7 +9,7 @@ export function Dropdown({ id }) {
     const { t } = useTranslation();
     const [toast, setToast] = useState({});
 
-    function printDocument() {
+    const printDocument = () => {
         fetchDocument(id).subscribe({
             next: (URI) => {
                 window.open(URI).print();
@@ -18,7 +18,7 @@ export function Dropdown({ id }) {
         });
     }
 
-    function downloadDocument() {
+    const downloadDocument = () => {
         fetchDocument(id).subscribe({
             next: (URI) => {
                 const downloadLink = document.createElement('a');

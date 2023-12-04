@@ -9,11 +9,11 @@ export function Toast({ type, message }) {
     const toaster = useRef() 
 
     useEffect(() => {
-      if(message) setToast(toastBody);
+      message && setToast(toastBody);
     },[message]);
 
     const toastBody = (
-      <CToast color={type}>
+      <CToast color={type || 'light'}>
         <CToastBody>{t(message)}</CToastBody>
       </CToast>
     )

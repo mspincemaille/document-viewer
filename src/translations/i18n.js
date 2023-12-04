@@ -7,11 +7,10 @@ import { initReactI18next } from "react-i18next";
 const resources = {
   en: {
     translation: {
-      "Error Message": "Something went wrong when fetching the data.",
       "View": "View",
       "Print": "Print",
-      "Download": "Download",
-      "Download Success": "Download completed"
+      200 : "Request completed.",
+      400 : "Request failed, please try again.",
     }
   },
   fr: {

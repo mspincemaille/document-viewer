@@ -14,7 +14,7 @@ export default function App() {
 
   const [loading, setLoading] = useState(true);
   const [config, setConfig] = useState({});
-  const [error, setError] = useState(false);
+  const [error, setError] = useState({});
 
 
   useEffect(() => {
@@ -30,8 +30,11 @@ export default function App() {
           return ({ ...currentData, ...results })
         });
       },
-      error: () => {
-        setError(true);
+      error: (error) => {
+        setError({ 
+          status : error?.status,
+          isError: true,
+        });
         setLoading(false);
       },
       complete: () => setLoading(false),
@@ -41,9 +44,8 @@ export default function App() {
   return (
     <>
       {
-        loading ?
-          <CSpinner></CSpinner> : error ?
-            <Message type='danger' message='Error Message'></Message> : <Table config={config}></Table>
+        loading ? <CSpinner></CSpinner> : 
+        error.isError ? <Message type='danger' message={error?.status}></Message> : <Table config={config}></Table>
       }
     </>
   );

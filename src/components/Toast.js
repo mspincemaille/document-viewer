@@ -2,7 +2,7 @@ import { CToast, CToaster, CToastBody } from "@coreui/react";
 import { useState, useRef, useEffect }  from "react";
 import { useTranslation } from "react-i18next";
 
-export function Toast({ type, message }) {
+export function Toast({ type = 'danger', message = 400}) {
     const { t } = useTranslation();
    
     const [toast, setToast] = useState(0)
@@ -13,7 +13,7 @@ export function Toast({ type, message }) {
     },[message]);
 
     const toastBody = (
-      <CToast color={type || 'light'}>
+      <CToast color={type}>
         <CToastBody>{t(message)}</CToastBody>
       </CToast>
     )

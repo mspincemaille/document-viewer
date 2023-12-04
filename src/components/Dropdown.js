@@ -14,7 +14,7 @@ export function Dropdown({ id }) {
             next: (URI) => {
                 window.open(URI).print();
             },
-            error: () => setToast({ type: 'danger', message: 'Error Message' })
+            error: (error) => setToast({ type: 'danger', message: error?.status })
         });
     }
 
@@ -27,9 +27,9 @@ export function Dropdown({ id }) {
                 downloadLink.download = 'image.jpg'
                 downloadLink.click();
 
-                setToast({ type: 'light', message: 'Download Success' })
+                setToast({ type: 'light', message: 200 })
             },
-            error: () => setToast({ type: 'danger', message: 'Error Message' })
+            error: (error) => setToast({ type: 'danger', message:  error?.status })
         });
     }
 

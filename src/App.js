@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 
 import { CSpinner } from "@coreui/react";
 import '@coreui/coreui/dist/css/coreui.min.css'
-import i18n from "./translations/i18n";
+import i18n from "./assets/translations/i18n";
 
 import { Table } from './components/Table';
 import { Message } from './components/Message';
 
 import { data$ } from "./services/services";
-import { concat } from "rxjs";
+import './assets/styles/styles.css'
 
 export default function App() {
 

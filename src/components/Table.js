@@ -10,9 +10,9 @@ export function Table({ data }) {
     const [search, setSearch] = useState('')
 
     return (
-        <>
+        <div className="table-wrapper">
             <Search setSearch={setSearch}></Search>
-            <CTable>
+            <CTable small bordered borderColor="light">
                 <CTableHead>
                     <CTableRow>
                         <CTableHeaderCell>{t('id')}</CTableHeaderCell>
@@ -23,9 +23,7 @@ export function Table({ data }) {
                 </CTableHead>
                 <CTableBody>
                     {data.filter((item) => {
-                        return search.toLowerCase() === ''
-                        ? item
-                        : item.class.includes(search)
+                        return item.class.includes(search)
                     }).map(row => {
                         return <CTableRow key={row.id}>
                             <CTableHeaderCell>{row.id}</CTableHeaderCell>
@@ -38,6 +36,6 @@ export function Table({ data }) {
                     })}
                 </CTableBody>
             </CTable>
-        </>
+        </div>
     )
 }

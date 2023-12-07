@@ -7,13 +7,13 @@ import i18n from "./translations/i18n";
 import { Table } from './components/Table';
 import { Message } from './components/Message';
 
-import { config$, data$ } from "./services/services";
+import { data$ } from "./services/services";
 import { concat } from "rxjs";
 
 export default function App() {
 
   const [loading, setLoading] = useState(true);
-  const [config, setConfig] = useState({});
+  const [data, setData] = useState({});
   const [error, setError] = useState({});
 
 
@@ -22,14 +22,9 @@ export default function App() {
   }, []);
 
   const fetchTable = () => {
-    const data = concat(config$, data$);
-
-    data.subscribe({
-      next: (results) => {
-        setConfig(currentData => {
-          return ({ ...currentData, ...results })
-        });
-      },
+  
+    data$.subscribe({
+      next: (results) => setData(results),
       error: (error) => {
         setError({ 
           status : error?.status,
@@ -45,7 +40,7 @@ export default function App() {
     <>
       {
         loading ? <CSpinner></CSpinner> : 
-        error.isError ? <Message type='danger' message={error?.status}></Message> : <Table config={config}></Table>
+        error.isError ? <Message type='danger' message={error?.status}></Message> : <Table data={data}></Table>
       }
     </>
   );

@@ -7,16 +7,6 @@ const LOCAL_PORT = 8000;
 
 app.use(cors());
 
-app.get('/config', (req, res) => {
-        fs.readFile(__dirname + '/src/config/config.json', (err, data) => {
-                if (err) {
-                        res.status(400).send()
-                } else {
-                        res.send(data);
-                }
-        });
-});
-
 app.get('/data', (req, res) => {
         fs.readFile(__dirname + '/src/config/data.json', (err, data) => {
                 if (err) {

@@ -1,33 +1,32 @@
 import { CTable, CTableHead, CTableRow, CTableHeaderCell, CTableDataCell, CTableBody } from "@coreui/react";
 import { Dropdown } from "./Dropdown";
 
-export function Table({ config }) {
+import { useTranslation } from "react-i18next";
+
+export function Table({ data }) {
+    const { t } = useTranslation();
+
     return (
         <CTable>
             <CTableHead>
                 <CTableRow>
-                    {
-                        config.columns.map(header => {
-                            return <CTableHeaderCell key={crypto.randomUUID()} scope="col">{header.label}</CTableHeaderCell>
-                        })
-                    }
-                    <CTableDataCell></CTableDataCell>
+                    <CTableHeaderCell>{t('id')}</CTableHeaderCell>
+                    <CTableHeaderCell>{t('Firstname')}</CTableHeaderCell>
+                    <CTableHeaderCell>{t('Lastname')}</CTableHeaderCell>
+                    <CTableHeaderCell></CTableHeaderCell>
                 </CTableRow>
             </CTableHead>
             <CTableBody>
-                {
-                    config.items.map(row => {
-                        return <CTableRow key={row.id}>
-                            <CTableHeaderCell>{row.id}</CTableHeaderCell>
-                            <CTableDataCell>{row.class}</CTableDataCell>
-                            <CTableDataCell>{row.heading_1}</CTableDataCell>
-                            <CTableDataCell>{row.heading_2}</CTableDataCell>
-                            <CTableDataCell>
-                                <Dropdown id={row.id}></Dropdown>
-                            </CTableDataCell>
-                        </CTableRow>
-                    })
-                }
+                {data.map(row => {
+                    return <CTableRow key={row.id}>
+                        <CTableHeaderCell>{row.id}</CTableHeaderCell>
+                        <CTableDataCell>{row.class}</CTableDataCell>
+                        <CTableDataCell>{row.heading_1}</CTableDataCell>
+                        <CTableDataCell>
+                            <Dropdown id={row.id}></Dropdown>
+                        </CTableDataCell>
+                    </CTableRow>
+                })}
             </CTableBody>
         </CTable>
     )

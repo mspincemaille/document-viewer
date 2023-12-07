@@ -7,6 +7,8 @@ import { initReactI18next } from "react-i18next";
 const resources = {
   en: {
     translation: {
+      "Firstname": "Firstname",
+      "Lastname": "Lastname",
       "View": "View",
       "Print": "Print",
       200 : "Request completed.",
@@ -15,10 +17,12 @@ const resources = {
   },
   fr: {
     translation: {
-      "Error Message": "Une erreur s'est produite lors de la récupération des données.",
-      "View": "View",
-      "Print": "Print",
-      "Download": "Download"
+      "Firstname": "Prénom",
+      "Lastname": "Nom de famille",
+      "View": "Voir",
+      "Print": "Imprimer",
+      200 : "Demande complétée.",
+      400 : "La demande a échoué, veuillez réessayer.",
     }
   }
 };

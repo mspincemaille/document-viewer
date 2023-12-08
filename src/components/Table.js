@@ -8,6 +8,7 @@ import { Search } from "./Search";
 export function Table({ data }) {
     const { t } = useTranslation();
     const [search, setSearch] = useState('')
+    const [topic, setTopic] = useState('class')
 
     return (
         <div className="table-wrapper">
@@ -23,7 +24,7 @@ export function Table({ data }) {
                 </CTableHead>
                 <CTableBody>
                     {data.filter((item) => {
-                        return item.class.includes(search)
+                        return item[topic].toLowerCase().includes(search)
                     }).map(row => {
                         return <CTableRow key={row.id}>
                             <CTableHeaderCell>{row.id}</CTableHeaderCell>
